@@ -42,6 +42,7 @@ int main(){
     tr_test2.name = "Wan";
     tr_test3.id = 101;
     tr_test3.name = "Wang";
+    // us1(100, &hasher, &eqOp) 100代表bucket的初始大小
     unordered_set<TR, decltype(hasher)*, decltype(eqOp)*> us1(100, &hasher, &eqOp);
     cout << us1.size() << endl;
     us1.insert(tr_test1);
