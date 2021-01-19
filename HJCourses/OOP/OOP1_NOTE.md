@@ -34,13 +34,13 @@
    - private, public, project
 3. 构造函数
    - 默认实参
-   ```cpp
-   class complex{
-   public:
-      complex (double r=0, double i = 0): re(r), im(i) {}
-      // ...
-    }
-    ```
+     ```cpp
+     class complex{
+     public:
+       complex (double r=0, double i = 0): re(r), im(i) {}
+       // ...
+     }
+     ```
      构造函数初始化，不要在{}中赋值
    - 不带指针的类多半不用写析构函数
    - 多个构造函数，重载
@@ -48,40 +48,40 @@
 
 ## P4 参数传递与返回值
 1. 常量成员函数 const
-- 函数后加const，不允许改变对象的数据
-    ```c++
-    class complex{
+   - 函数后加const，不允许改变对象的数据
+      ```c++
+      class complex{
         public:
             complex (double r=0, double i = 0): re(r), im(i) {}
             double real () const {return re;}
         // ...
-    }
-    {
+      }
+      {
         const complex c1(2,1);
         c1.real(); // 若成员函数real()未加const，不但能对const对象c1调用该成员函数
-    }
-    ```
+      }
+      ```
 2. 参数传递 [pass by value vs. pass by reference (to const)]
-- 参数尽量传引用，尽量返回引用
+   - 参数尽量传引用，尽量返回引用
 3. 友元
-- 自由取得friend的private成员
-- 相同class的各个object互为friends
+   - 自由取得friend的private成员
+   - 相同class的各个object互为friends
 4. 不能 return by reference 的情况
-- 函数中声明的变量需要返回值，因为离开函数域该变量被销毁
+   - 函数中声明的变量需要返回值，因为离开函数域该变量被销毁
 <br><br>
 
 ## P5 操作符重载与临时对象
 1. 操作符重载——成员函数
-- 二目操作符左边的值为操作符调用者 c2+=c1 c2为调用者
-- return by reference 语法分析
-    ```cpp
-    inline complex& 
-    __doapl(complex* this, const complex& r){
+   - 二目操作符左边的值为操作符调用者 c2+=c1 c2为调用者
+   - return by reference 语法分析
+      ```cpp
+      inline complex& 
+      __doapl(complex* this, const complex& r){
         ...
         return *ths;
-    }
-    ```
-    传递者无需知道接收者是以reference形式接收
+      }
+      ```
+      传递者无需知道接收者是以reference形式接收
 2. 头文件布局
     ```cpp
     //complex.h
@@ -120,9 +120,9 @@
 
 ## P6 复习 Complex 类的实现过程
 1. 注意
-- 防卫式函数定义
-- 数据放在private中
-- 构造函数要用初值列【initializer list】不要赋值
+   - 防卫式函数定义
+   - 数据放在private中
+   - 构造函数要用初值列【initializer list】不要赋值
 <br><br>
 
 ## P7 三大函数：拷贝构造、拷贝赋值、析构
@@ -265,7 +265,7 @@
    - 构造由内而外，析构由外而内
 <br><br>
 
-## P12 虚函数与多态
+## P12 虚函数与多态 (详见视频)
 1. 函数的继承，继承的是调用权
 2. virtual 
    - non-virtual 不希望 derived class 覆盖它
@@ -277,6 +277,21 @@
       ```c++
       vitual void draw() const = 0;
       ```
+3. Inheritance with vitual
+   - 子类可以调用父类的函数
+   - Template Method 设计模式
+4. Delegation + Inheritance
+   - Subject-Observer 设计模式
+<br><br>
+
+## P13 委托相关设计
+**设计模式**
+1. Adapter
+2. Handle-Body
+3. Template Method
+4. Observer
+5. Composite
+6. Prototype
 
    
 
