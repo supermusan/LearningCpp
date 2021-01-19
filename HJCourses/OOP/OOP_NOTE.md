@@ -252,6 +252,32 @@
    }
    ```
 5. namespace
+<br><br>
+
+## P11 组合与继承
+1. Adapter 适配器 设计模式
+2. Composition 关系下的构造和析构
+   - 构造由内而外
+   - 析构由外而内
+3. Delegation 委托 【Composition by reference】
+4. inheritance 继承
+   - base class 的 dtor（析构函数） 必须是 virtual
+   - 构造由内而外，析构由外而内
+<br><br>
+
+## P12 虚函数与多态
+1. 函数的继承，继承的是调用权
+2. virtual 
+   - non-virtual 不希望 derived class 覆盖它
+   - virtual 希望 derived class 覆盖它，且你有默认定义
+      ```c++
+      vitual void draw() const;
+      ```
+   - pure virtual 希望 derived class 一定要覆盖它，没有默认定义
+      ```c++
+      vitual void draw() const = 0;
+      ```
+
    
 
 
