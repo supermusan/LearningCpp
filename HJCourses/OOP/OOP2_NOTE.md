@@ -227,3 +227,54 @@ using Lst = list<T, allocator<T>>;
    - 容器放父类指针，可以用来存储一组子类的指针
    - 这种动态绑定的用法叫做多态
 <br><br>
+
+## P18 this pointer
+1. 通过对象调用一个函数，对象的地址就是 this pointer
+2. 调用虚函数时，其实是调用 ```this->func()``` 根据 this pointer 动态绑定真正的调用函数
+<br><br>
+
+## P19-1 Dynamic Binding
+1. 只有通过指针才是动态绑定，通过对象时静态绑定
+   ```c++
+   // B继承于A
+   B b;
+   A a = (A)b;
+   a.vfunc1(); // 对象调用，静态绑定
+
+   A *pa = new B;
+   pa->vfunc1(); // 指针调用，动态绑定
+
+   pa = &b;
+   pa->vfunc1(); // 指针调用，动态绑定
+   ```
+<br><br>
+
+## P19-2 Dynamic Binding
+1. 谈谈 const
+   - const object 不能调用 non-const function
+   - const 算函数签名的一部分，可重载
+      ```c++
+      charT operator[](size_type pos) const{
+          // 不必考虑 copy on write
+      }
+      reference operator[](size_type pos) {
+          // 必须考虑 copy on write
+      }
+      ```
+   - 当成员函数的 const 和 non-const 版本同时存在，const object 只会调用 const 版本，non-const object 只会调用 non-const版本
+<br><br>
+
+## P20 关于 new, delete
+<br><br>
+
+## P21 重载 ::operator new, ::operator delete, member operator delete/new...
+<br><br>
+
+## P22
+<br><br>
+
+## P23
+<br><br>
+
+## P24
+<br><br>
