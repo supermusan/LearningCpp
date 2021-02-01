@@ -270,11 +270,11 @@ using Lst = list<T, allocator<T>>;
 ## P21 重载 ::operator new, ::operator delete, member operator delete/new...
 <br><br>
 
-## P22
+## P22 示例
 <br><br>
 
-## P23
+## P23 重载new() delete()示例
 <br><br>
 
-## P24
+## P24 Basic_String使用new(extra)扩充申请量
 <br><br>
